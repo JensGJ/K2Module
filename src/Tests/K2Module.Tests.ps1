@@ -45,9 +45,9 @@ Describe "Manifest" {
     }
 
     # Skal rettes så funktionerne så ikke længere har prefixes.
-	It "has a valid prefix" {
-		$Manifest.Prefix | Should -Not -BeNullOrEmpty
-	}
+	# It "has a valid prefix" {
+	# 	$Manifest.Prefix | Should -Not -BeNullOrEmpty
+	# }
 
 	It "has a valid copyright" {
 		$Manifest.CopyRight | Should -Not -BeNullOrEmpty

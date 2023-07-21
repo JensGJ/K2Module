@@ -2,7 +2,7 @@ task . Clean, Build, Tests, BuildMarkdown, ExportHelp, GenerateGraph, Stats
 task Tests ImportCompipledModule, Pester
 task CreateManifest CopyPSD, UpdatPublicFunctionsToExport
 task Build Compile, CreateManifest
-task Stats RemoveStahts, WriteStats
+task Stats RemoveStats, WriteStats
 task Help BuildMarkdown, ExportHelp
 
 $ModuleName = Split-Path -Path $PSScriptRoot -Leaf
@@ -80,7 +80,7 @@ task ImportCompipledModule -if (Test-Path -Path $PsmPath) {
 
 task Pester {
     $resultFile = "{0}\testResults{1}.xml" -f $OutPutFolder, (Get-date -Format 'yyyyMMdd_hhmmss')
-    $testFolder = Join-Path -Path $PSScriptRoot -ChildPath 'Tests\*'
+    $testFolder = Join-Path -Path $PSScriptRoot -ChildPath 'src\Tests\*'
     Invoke-Pester -Path $testFolder -OutputFile $resultFile -OutputFormat NUnitxml -Verbose
     
 }

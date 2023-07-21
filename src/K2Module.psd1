@@ -69,7 +69,7 @@ Description = 'K2 functions '
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = '*'
+FunctionsToExport = @('Get-K2DBInstance', 'Get-K2host', 'Get-K2server', 'Invoke-K2Url', 'Invoke-Webbrowser', 'Start-K2RemoteSession')
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = '*'
