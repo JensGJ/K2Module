@@ -73,6 +73,10 @@
                 "reveal": "always",
                 "showReuseMessage": false,
                 "focus": true
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
             }
         },
         {
