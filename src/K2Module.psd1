@@ -12,7 +12,7 @@
 RootModule = 'K2Module.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.1.1'
+ModuleVersion = '0.3.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -24,13 +24,13 @@ GUID = 'eb2db011-3c71-42f6-a243-581e7cff716a'
 Author = 'Jens Gyldenkærne Jensen'
 
 # Company or vendor of this module
-CompanyName = 'Unknown'
+CompanyName = 'Copenhagen Business School'
 
 # Copyright statement for this module
 Copyright = '(c) Jens Gyldenkærne Jensen. All rights reserved.'
 
 # Description of the functionality provided by this module
-Description = 'K2 functions '
+Description = 'K2 functions for CBS'
 
 # Minimum version of the PowerShell engine required by this module
 # PowerShellVersion = ''
@@ -51,13 +51,13 @@ Description = 'K2 functions '
 # ProcessorArchitecture = ''
 
 # Modules that must be imported into the global environment prior to importing this module
-# RequiredModules = @()
+RequiredModules = @('ActiveDirectory')
 
 # Assemblies that must be loaded prior to importing this module
 # RequiredAssemblies = @()
 
 # Script files (.ps1) that are run in the caller's environment prior to importing this module.
-# ScriptsToProcess = @()
+ScriptsToProcess = @('Private/install-activedirectorymodule.ps1')
 
 # Type files (.ps1xml) to be loaded when importing this module
 # TypesToProcess = @()
@@ -95,7 +95,7 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        # Tags = @()
+        Tags = @('K2')
 
         # A URL to the license for this module.
         # LicenseUri = ''
@@ -107,7 +107,7 @@ PrivateData = @{
         # IconUri = ''
 
         # ReleaseNotes of this module
-        # ReleaseNotes = ''
+        ReleaseNotes = 'Stadig i testfasen ...'
 
         # Prerelease string of this module
         # Prerelease = ''
@@ -116,7 +116,7 @@ PrivateData = @{
         # RequireLicenseAcceptance = $false
 
         # External dependent modules of this module
-        # ExternalModuleDependencies = @()
+        ExternalModuleDependencies = @('ActiveDirectory')
 
     } # End of PSData hashtable
 
