@@ -8,13 +8,24 @@ schema: 2.0.0
 # Get-K2server
 
 ## SYNOPSIS
-Listing information about SQLservers in the HA Cluster
+Show information about K2 Servers
 
 ## SYNTAX
 
+### NameFilter
 ```
-Get-K2server [[-Environment] <String[]>] [[-Role] <String[]>] [[-ServerNumberFilter] <String>] [[-IP] <String>]
+Get-K2server [[-Environment] <String[]>] [[-Role] <String[]>] [[-ServerNumberFilter] <String>]
  [<CommonParameters>]
+```
+
+### IP
+```
+Get-K2server -IP <String> [<CommonParameters>]
+```
+
+### Current
+```
+Get-K2server [-Current] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -24,12 +35,17 @@ TBD
 
 ### EXAMPLE 1
 ```
-Get-SQLservers -Environment PROD
+Get-K2server -Current
 ```
 
 ### EXAMPLE 2
 ```
-Get-SQLservers -ServerNumber 201 -Role DB
+Get-K2server -Environment PROD
+```
+
+### EXAMPLE 3
+```
+Get-K2server -Role APP
 ```
 
 ## PARAMETERS
@@ -41,7 +57,7 @@ Default value: ALL
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
+Parameter Sets: NameFilter
 Aliases:
 
 Required: False
@@ -58,7 +74,7 @@ Default value: ALL
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
+Parameter Sets: NameFilter
 Aliases:
 
 Required: False
@@ -73,7 +89,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: NameFilter
 Aliases:
 
 Required: False
@@ -88,12 +104,27 @@ Select servers with a specific IP address.
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: IP
 Aliases:
 
-Required: False
-Position: 4
+Required: True
+Position: Named
 Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Current
+Get K2 serverinfo for the current server
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: Current
+Aliases:
+
+Required: True
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -105,9 +136,9 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### List of Custom SQLserver objects
+### List of K2 Server objects
 ## NOTES
-TBD
+Role, enviroment and servernumber are extracted from the 4 part server name
 
 ## RELATED LINKS
 
