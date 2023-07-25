@@ -31,7 +31,10 @@ function Invoke-K2Url {
     process {
         $URL = Get-K2Url -RelativeURL $RelativeURL -Environment $Environment
 
-        Invoke-Webbrowser -URL $URL -BrowserName $Browsername -private:$private;
+        if ($PSCmdlet.ShouldProcess("$URL", "Invoke-Webbrowser ($($BrowserName))")) {
+            Invoke-Webbrowser -URL $URL -BrowserName $Browsername -private:$private;    
+        }
+        
     }
 
     end {

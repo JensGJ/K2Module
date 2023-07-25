@@ -15,7 +15,7 @@ function Start-K2RemoteSession {
     }
 
     process {
-        $servers = Get-K2server -Role $Role | Select -ExpandProperty Name
+        $servers = Get-K2server -Role $Role | Select-Object -ExpandProperty Name
         if($PSCmdlet.ShouldProcess($servers -join ", ")){
             $global:K2session = $servers | New-PSSession -Authentication Credssp -Credential $cred 
             $K2session
