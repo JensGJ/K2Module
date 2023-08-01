@@ -39,17 +39,17 @@ Returnerer db-instansen for DEV-miljøet
 ## PARAMETERS
 
 ### -Environment
-= \[CBS.Environment\]::PROD
+{{ Fill Environment Description }}
 
 ```yaml
 Type: Environment
 Parameter Sets: (All)
 Aliases:
-Accepted values: PROD, PREPROD, TEST, DEV
+Accepted values: PRD, PP, TST, DEV
 
 Required: False
 Position: 1
-Default value: None
+Default value: (Get-K2Environment)
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

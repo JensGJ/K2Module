@@ -37,7 +37,7 @@ PS C:\> {{ Add example code here }}
 Type: Environment
 Parameter Sets: (All)
 Aliases:
-Accepted values: PROD, PREPROD, TEST, DEV
+Accepted values: PRD, PP, TST, DEV
 
 Required: False
 Position: 0

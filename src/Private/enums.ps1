@@ -7,9 +7,9 @@ using System;
 	{
 		public enum Environment : int
 		{
-		      PROD,
-		      PREPROD,
-		      TEST,
+		      PRD,
+		      PP,
+		      TST,
 		      DEV
 		}
 	}
