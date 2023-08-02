@@ -1,0 +1,30 @@
+{
+    "K2Directories" : {
+        "K2Logs" : "E:\\K2Logs\\",
+        "HostServerLogs" : "E:\\K2Logs\\HostServer\\",
+        "Deploy" : "E:\\Deploy\\",
+        "ServiceDescriptions" : "C:\\ServiceDescriptions\\", 
+        "EndpointAssemblies" : "C:\\K2 Endpoint Assemblies\\",
+        "Certificate" : "C:\\Certificate\\",
+        "HostServerBin" : "C:\\Program Files (x86)\\K2 blackpearl\\Host Server\\Bin\\"
+    },
+
+    "enums" : [
+        {
+            "Namespace" : "CBS",
+            "EnumName" : "Environment",
+            "Values" : ["PRD", "PP", "TST", "DEV"]
+        },
+        {
+            "Namespace" : "K2",
+            "EnumName" : "RelativeUrl",
+            "Values" : ["Management", "Workspace", "Designer", "LandingPage"]
+        },
+        {
+            "Namespace" : "K2",
+            "EnumName" : "K2Directory",
+            "Values" : "K2Directories"
+        }
+        
+    ]
+}

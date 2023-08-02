@@ -2,7 +2,7 @@ function Invoke-K2Url {
     [CmdletBinding(SupportsShouldProcess)]
     param (
         [Parameter(Mandatory=$true)]
-        [CBS.K2.RelativeURL]
+        [K2.RelativeURL]
         $RelativeURL,
 
         [Parameter(Mandatory=$false)]

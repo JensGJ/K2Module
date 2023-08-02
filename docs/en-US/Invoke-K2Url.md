@@ -13,7 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-Invoke-K2Url [-RelativeURL] <RelativeURL> [[-Environment] <Environment>] [[-Browsername] <String>] [-Private]
+Invoke-K2Url [-RelativeURL] <RelativeUrl> [[-Environment] <Environment>] [[-Browsername] <String>] [-Private]
  [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
@@ -97,7 +97,7 @@ Accept wildcard characters: False
 {{ Fill RelativeURL Description }}
 
 ```yaml
-Type: RelativeURL
+Type: RelativeUrl
 Parameter Sets: (All)
 Aliases:
 Accepted values: Management, Workspace, Designer, LandingPage

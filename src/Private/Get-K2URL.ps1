@@ -2,12 +2,12 @@ function Get-K2Url {
         [CmdletBinding()]
         param (
             [Parameter(Mandatory=$true)]
-            [CBS.K2.RelativeURL]
+            [K2.RelativeURL]
             $RelativeURL,
 
             [Parameter(Mandatory=$false)]
             [CBS.Environment]
-            $Environment = [CBS.Environment]::PROD
+            $Environment = (Get-K2Environment)
 
 
 

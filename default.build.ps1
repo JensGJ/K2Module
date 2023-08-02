@@ -1,6 +1,6 @@
 task . Clean, Build, Tests, BuildMarkdown, ExportHelp, GenerateGraph, Stats
-task Tests ImportCompipledModule, Pester
-task CreateManifest CopyPSD, UpdatPublicFunctionsToExport
+task Tests ImportCompiledModule, Pester
+task CreateManifest CopyPSD, CopyConfig, UpdatePublicFunctionsToExport
 task Build Compile, CreateManifest
 task Stats RemoveStats, WriteStats
 task Help BuildMarkdown, ExportHelp
@@ -14,6 +14,7 @@ $docsPath = [System.IO.Path]::Combine($PSScriptRoot, "docs", "en-US")
 $OutPutFolder = "$PSScriptRoot\Release"
 $statsjsonPath = [System.IO.Path]::Combine($OutPutFolder, $ModuleName, $srcModuleVersion, "stats.json")
 $ImportFolders = @('Public', 'Private')
+$ConfigPath = Join-Path -Path $PSScriptRoot -ChildPath "Release\$($ModuleName)\$($srcModuleVersion)\config.json"
 $PsmPath = Join-Path -Path $PSScriptRoot -ChildPath "Release\$($ModuleName)\$($srcModuleVersion)\$($ModuleName).psm1"
 $PsdPath = Join-Path -Path $PSScriptRoot -ChildPath "Release\$($ModuleName)\$($srcModuleVersion)\$($ModuleName).psd1"
 $HelpPath = Join-Path -Path $PSScriptRoot -ChildPath "Release\$($ModuleName)\$($srcModuleVersion)\en-US"
@@ -63,7 +64,21 @@ task CopyPSD {
     Copy-Item @copy
 }
 
-task UpdatPublicFunctionsToExport -if (Test-Path -Path $PublicFolder) {
+
+task CopyConfig {
+    New-Item -Path (Split-Path $PsdPath) -ItemType Directory -ErrorAction 0
+    $copy = @{
+        Path        = Join-Path -Path $srcPath -ChildPath "config.json"
+        Destination = $ConfigPath
+        Force       = $true
+        Verbose     = $true
+    }
+    Copy-Item @copy
+}
+
+
+
+task UpdatePublicFunctionsToExport -if (Test-Path -Path $PublicFolder) {
     $publicFunctions = (Get-ChildItem -Path $PublicFolder |
         Select-Object -ExpandProperty BaseName) -join "', '"
 
@@ -72,7 +87,7 @@ task UpdatPublicFunctionsToExport -if (Test-Path -Path $PublicFolder) {
     (Get-Content -Path $PsdPath) -replace "FunctionsToExport = '\*'", $publicFunctions | Set-Content -Path $PsdPath
 }
 
-task ImportCompipledModule -if (Test-Path -Path $PsmPath) {
+task ImportCompiledModule -if (Test-Path -Path $PsmPath) {
     Get-Module -Name $ModuleName |
     Remove-Module -Force
     Import-Module -Name $PsdPath -Force
