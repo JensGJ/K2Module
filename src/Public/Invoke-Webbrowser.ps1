@@ -11,7 +11,7 @@ function Invoke-Webbrowser {
         [Parameter()]
         [ValidateSet("Chrome", "Edge", "Firefox")]
         [String]
-        $Browsername = "Chrome",
+        $Browsername = "Edge",
 
 
         # Private?

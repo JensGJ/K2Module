@@ -7,7 +7,7 @@ function Invoke-K2Url {
 
         [Parameter(Mandatory=$false)]
         [CBS.Environment]
-        $Environment = [CBS.Environment]::PROD,
+        $Environment = (Get-K2Environment -FallBackEnvironment PRD),
 
         # Name of the browser to open
         [Parameter()]

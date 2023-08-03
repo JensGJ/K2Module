@@ -1,4 +1,4 @@
-task . Clean, Build, Tests, BuildMarkdown, ExportHelp, GenerateGraph, Stats
+task . Clean, Build, Tests, BuildMarkdown, ExportHelp, GenerateGraph, Stats, ImportCompiledModule
 task Tests ImportCompiledModule, Pester
 task CreateManifest CopyPSD, CopyConfig, UpdatePublicFunctionsToExport
 task Build Compile, CreateManifest
@@ -88,6 +88,7 @@ task UpdatePublicFunctionsToExport -if (Test-Path -Path $PublicFolder) {
 }
 
 task ImportCompiledModule -if (Test-Path -Path $PsmPath) {
+    Write-Host -ForegroundColor Cyan "Running importcompiledmodule..."
     Get-Module -Name $ModuleName |
     Remove-Module -Force
     Import-Module -Name $PsdPath -Force

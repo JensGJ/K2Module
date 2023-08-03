@@ -25,7 +25,7 @@ function Get-EnumValues {
 
     $valueList =  $EnumObject.Values; 
     
-    if ($EnumObject -is [String]){
+    if ($valueList -is [String]){
         $valueList =  ($ConfigObject.$ValueList) |  Get-Member -MemberType NoteProperty | Select -ExpandProperty Name 
     }
 
