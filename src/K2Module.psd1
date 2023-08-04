@@ -12,7 +12,7 @@
 RootModule = 'K2Module.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.8.0'
+ModuleVersion = '0.9.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -71,7 +71,7 @@ RequiredModules = @('ActiveDirectory')
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
  FunctionsToExport = @('Get-K2DBInstance', 'Get-K2host', 'Get-K2server', 'Invoke-K2Url', 
  'Invoke-Webbrowser', 'Start-K2RemoteSession', 'Get-K2Service', 'Start-K2Service', 'Stop-K2Service', 'Restart-K2Service',
- 'Get-K2LogLevel', 'Get-K2Environment', 'Enter-K2Location', 'Exit-K2Location', 'Get-K2ModuleDefault', 'Set-K2ModuleDefault')
+ 'Get-K2LogLevel', 'Get-K2Environment', 'Enter-K2Location', 'Exit-K2Location', 'Get-K2ModuleDefault', 'Set-K2ModuleDefault', 'Get-K2Status')
 # FunctionsToExport = '*'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
