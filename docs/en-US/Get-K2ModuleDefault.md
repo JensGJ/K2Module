@@ -5,7 +5,7 @@ online version:
 schema: 2.0.0
 ---
 
-# Enter-K2Location
+# Get-K2ModuleDefault
 
 ## SYNOPSIS
 {{ Fill in the Synopsis }}
@@ -13,7 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-Enter-K2Location [-CommonK2Directory] <K2Directory> [<CommonParameters>]
+Get-K2ModuleDefault [[-setting] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -30,16 +30,16 @@ PS C:\> {{ Add example code here }}
 
 ## PARAMETERS
 
-### -CommonK2Directory
-{{ Fill CommonK2Directory Description }}
+### -setting
+{{ Fill setting Description }}
 
 ```yaml
-Type: K2Directory
+Type: String
 Parameter Sets: (All)
 Aliases:
-Accepted values: Certificate, Deploy, EndpointAssemblies, HostServerBin, HostServerLogs, K2Logs, ServiceDescriptions
+Accepted values: All, browsername, fallbackEnvironment, RelativeUrl
 
-Required: True
+Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False

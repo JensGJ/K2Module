@@ -11,7 +11,7 @@ function Invoke-Webbrowser {
         [Parameter()]
         [ValidateSet("Chrome", "Edge", "Firefox")]
         [String]
-        $Browsername = "Edge",
+        $Browsername = (Get-K2ModuleDefault -setting browsername),
 
 
         # Private?
@@ -39,7 +39,13 @@ function Invoke-Webbrowser {
         }
 
         if ($PSCmdlet.ShouldProcess(("{0} -ArgumentList {1}" -f $processName, $argument), "Start-Process")) {
-            Start-Process $processName -ArgumentList $argument
+            
+            try {
+                Start-Process $processName -ArgumentList $argument
+            }
+            catch {
+                Write-Error "Failed to start $Browsername (might not be installed). (Process: $processName, Argument: $argument)"
+            }
         }
 
     }

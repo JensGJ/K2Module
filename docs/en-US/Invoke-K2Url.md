@@ -13,7 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-Invoke-K2Url [-RelativeURL] <RelativeUrl> [[-Environment] <Environment>] [[-Browsername] <String>] [-Private]
+Invoke-K2Url [[-RelativeURL] <RelativeUrl>] [[-Environment] <Environment>] [[-Browsername] <String>] [-Private]
  [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
@@ -102,7 +102,7 @@ Parameter Sets: (All)
 Aliases:
 Accepted values: Management, Workspace, Designer, LandingPage
 
-Required: True
+Required: False
 Position: 0
 Default value: None
 Accept pipeline input: False

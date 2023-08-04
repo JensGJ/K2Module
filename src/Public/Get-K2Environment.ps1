@@ -3,7 +3,7 @@ function Get-K2Environment {
     param (
         [Parameter(Mandatory=$false)]
         [CBS.Environment]
-        $FallBackEnvironment = [CBS.Environment]::PRD
+        $FallBackEnvironment = (Get-K2ModuleDefault -setting fallbackEnvironment)
     )
 
     [CBS.Environment]$Environment = $FallBackEnvironment

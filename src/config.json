@@ -1,4 +1,10 @@
 {
+    "defaults" : {
+        "browsername" : "Edge", 
+        "fallbackEnvironment" : "PRD",
+        "RelativeUrl" : "Management"
+    },
+
     "K2Directories" : {
         "K2Logs" : "E:\\K2Logs\\",
         "HostServerLogs" : "E:\\K2Logs\\HostServer\\",

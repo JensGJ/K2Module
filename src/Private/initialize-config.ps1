@@ -3,8 +3,9 @@ Write-Verbose "Initializing config.json"
 
 # $PsScriptRoot | fl *
 
-$K2Config = Get-Content -Path "$($PSScriptRoot)\config.json" -ErrorAction "Stop" | ConvertFrom-JSON
+$global:K2Config = Get-Content -Path "$($PSScriptRoot)\config.json" -ErrorAction "Stop" | ConvertFrom-JSON
 
 Import-Enums $K2Config -Verbose
 
-$K2Config | fl
+
+# $K2Config | fl
