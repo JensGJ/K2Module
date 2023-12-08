@@ -13,7 +13,7 @@ Get-K2DBInstance leverer dns-navnet på databaseserveren tilknyttet K2.
 ## SYNTAX
 
 ```
-Get-K2DBInstance [[-Environment] <Environment>] [<CommonParameters>]
+Get-K2DBInstance [[-Environment] <Environment>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -50,6 +50,21 @@ Accepted values: PRD, PP, TST, DEV
 Required: False
 Position: 1
 Default value: (Get-K2Environment)
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+{{ Fill ProgressAction Description }}
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
+
+Required: False
+Position: Named
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

@@ -15,17 +15,17 @@ Show information about K2 Servers
 ### NameFilter
 ```
 Get-K2server [[-Environment] <String[]>] [[-Role] <String[]>] [[-ServerNumberFilter] <String>]
- [<CommonParameters>]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### IP
 ```
-Get-K2server -IP <String> [<CommonParameters>]
+Get-K2server -IP <String> [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### Current
 ```
-Get-K2server [-Current] [<CommonParameters>]
+Get-K2server [-Current] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -125,6 +125,21 @@ Aliases:
 Required: True
 Position: Named
 Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+{{ Fill ProgressAction Description }}
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
+
+Required: False
+Position: Named
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

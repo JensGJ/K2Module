@@ -14,17 +14,18 @@ schema: 2.0.0
 
 ### browser (Default)
 ```
-Set-K2ModuleDefault -browsername <String> [<CommonParameters>]
+Set-K2ModuleDefault -browsername <String> [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ### environment
 ```
-Set-K2ModuleDefault -FallBackEnvironment <Environment> [<CommonParameters>]
+Set-K2ModuleDefault -FallBackEnvironment <Environment> [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ### RelativeUrl
 ```
-Set-K2ModuleDefault -RelativeUrl <RelativeUrl> [<CommonParameters>]
+Set-K2ModuleDefault -RelativeUrl <RelativeUrl> [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -83,6 +84,21 @@ Aliases:
 Accepted values: chrome, edge, firefox
 
 Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+{{ Fill ProgressAction Description }}
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
+
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
