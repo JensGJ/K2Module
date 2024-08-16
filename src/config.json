@@ -10,6 +10,7 @@
         "HostServerLogs" : "E:\\K2Logs\\HostServer\\",
         "Deploy" : "E:\\Deploy\\",
         "ServiceDescriptions" : "C:\\ServiceDescriptions\\", 
+        "ServiceBroker" : "C:\\Program Files (x86)\\K2 blackpearl\\ServiceBroker\\",
         "EndpointAssemblies" : "C:\\K2 Endpoint Assemblies\\",
         "Certificate" : "C:\\Certificate\\",
         "HostServerBin" : "C:\\Program Files (x86)\\K2 blackpearl\\Host Server\\Bin\\"
