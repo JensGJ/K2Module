@@ -3,7 +3,7 @@ function Get-K2ModuleDefault {
     param (
         # Parameter help description
         [Parameter()]
-        [ValidateSet("All", "browsername", "fallbackEnvironment", "RelativeUrl")]
+        [ValidateSet("All", "browsername", "fallbackEnvironment", "RelativeUrl", "fallbackDrive")]
         [string]
         $setting = "All"
     )

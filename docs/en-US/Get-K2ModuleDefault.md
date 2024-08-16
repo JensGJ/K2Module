@@ -37,7 +37,7 @@ PS C:\> {{ Add example code here }}
 Type: String
 Parameter Sets: (All)
 Aliases:
-Accepted values: All, browsername, fallbackEnvironment, RelativeUrl
+Accepted values: All, browsername, fallbackEnvironment, RelativeUrl, fallbackDrive
 
 Required: False
 Position: 0

@@ -2,7 +2,8 @@
     "defaults" : {
         "browsername" : "Edge", 
         "fallbackEnvironment" : "PRD",
-        "RelativeUrl" : "Management"
+        "RelativeUrl" : "Management",
+        "fallbackDrive" : "D:"
     },
 
     "K2Directories" : {
