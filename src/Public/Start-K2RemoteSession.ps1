@@ -12,6 +12,11 @@ function Start-K2RemoteSession {
             # Hent og gem credentials til at åbne PSsession
             $cred = Get-Credential -Message "Angiv credentials med adgang til K2serverne"
          }
+
+         # Validate credential to avoid locking the user out if password is wrong
+         if (-not (Test-WinCredential $cred)){
+            throw "Cannot validate credentials (Username='$($cred.UserName)'). Exiting."
+         }
     }
 
     process {
