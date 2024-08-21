@@ -1,3 +1,5 @@
+#[ValidateSet("All", "browsername", "fallbackEnvironment", "RelativeUrl", "fallbackDrive")]
+
 function Set-K2ModuleDefault {
     [CmdletBinding(DefaultParameterSetName="browser")]
     param (
@@ -7,14 +9,18 @@ function Set-K2ModuleDefault {
         [string]
         $browsername,
 
-
         [Parameter(ParameterSetName="environment", Mandatory=$true)]
         [CBS.Environment]
         $FallBackEnvironment,
 
         [Parameter(ParameterSetName="RelativeUrl", Mandatory=$true)]
         [K2.RelativeUrl]
-        $RelativeUrl
+        $RelativeUrl,
+
+        [Parameter(ParameterSetName="drive", Mandatory=$true)]
+        [string]
+        $FallBackDrive
+
 
     )
     
@@ -42,6 +48,10 @@ function Set-K2ModuleDefault {
              }
             "RelativeUrl" {
                 $global:K2Config.defaults.RelativeUrl = $RelativeUrl
+                break;
+            }
+            "drive" {
+                $global:K2Config.defaults.fallbackDrive = $FallBackDrive
                 break;
             }
             Default {

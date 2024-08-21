@@ -4,17 +4,13 @@ function Get-K2LogLevel {
         
     )
     
-    begin {
+    try {
+                $logConfig =[xml](Get-Content 'C:\Program Files (x86)\K2 blackpearl\Host Server\Bin\HostServerLogging.config' -ErrorAction Stop);
+                
+                $logConfig.configuration.ApplicationLevelLogSettings.ApplicationLevelLogSetting.LogLocationSettings.LogLocation
         
     }
-    
-    process {
-        $logConfig =[xml](Get-Content 'C:\Program Files (x86)\K2 blackpearl\Host Server\Bin\HostServerLogging.config');
-        
-        $logConfig.configuration.ApplicationLevelLogSettings.ApplicationLevelLogSetting.LogLocationSettings.LogLocation
-    
-    }
-    end {
-        
-    }
+    catch {
+        Write-Warning "HostServerLogging.config not found or not in correct format. Note that this command only works on a K2 server"
+    }    
 }
