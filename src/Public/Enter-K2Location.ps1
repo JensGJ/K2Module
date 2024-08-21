@@ -9,7 +9,11 @@ function Enter-K2Location {
 
 try {
         $defaultLocation =  $K2Config.K2Directories.$CommonK2Directory
-        Push-Location -StackName K2Navigation $defaultLocation
+        if (Test-Path $defaultLocation) {
+            Push-Location -StackName K2Navigation $defaultLocation
+        } else {
+            throw "Path '$defaultLocation' does not exist."
+        }
 }
 catch {
     Write-Warning $"Directory {$CommonK2Directory} not found at default location {$defaultLocation}."
@@ -21,7 +25,7 @@ catch {
         Write-Verbose "Looking for $CommonK2Directory in $fallbackLocation"
         if (test-path $fallbackLocation){
             Write-Verbose "Found"
-            Push-Location $fallbackLocation
+            Push-Location -StackName K2Navigation $fallbackLocation
         }
     }
 }

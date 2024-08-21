@@ -37,7 +37,7 @@ PS C:\> {{ Add example code here }}
 Type: K2Directory
 Parameter Sets: (All)
 Aliases:
-Accepted values: Certificate, Deploy, EndpointAssemblies, HostServerBin, HostServerLogs, K2Logs, ServiceDescriptions
+Accepted values: Certificate, Deploy, EndpointAssemblies, HostServerBin, HostServerLogs, K2Logs, ServiceBroker, ServiceDescriptions
 
 Required: True
 Position: 0

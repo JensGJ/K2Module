@@ -12,7 +12,7 @@ function Get-K2Status {
 
 	try {
 		# Try getting the process with the username
-		$Process = Get-Process K2HostServer -IncludeUserName	
+		$Process = Get-Process K2HostServer -IncludeUserName -ErrorAction Stop
 	}
 	catch {
 		# If it is not allowed, retrive the process without username

@@ -19,6 +19,7 @@ $PsmPath = Join-Path -Path $PSScriptRoot -ChildPath "Release\$($ModuleName)\$($s
 $PsdPath = Join-Path -Path $PSScriptRoot -ChildPath "Release\$($ModuleName)\$($srcModuleVersion)\$($ModuleName).psd1"
 $HelpPath = Join-Path -Path $PSScriptRoot -ChildPath "Release\$($ModuleName)\$($srcModuleVersion)\en-US"
 $PublicFolder = Join-Path -Path $srcPath -ChildPath 'Public'
+$ModulePath = Join-Path -Path $OutPutFolder -ChildPath "$ModuleName\$srcModuleVersion"
 
 task "Clean" {
     if (-not(Test-Path $OutPutFolder))
@@ -163,4 +164,19 @@ task BuildMarkdown {
     }
 
     New-MarkdownHelp @splat
+}
+task Publish {
+    param (
+        [string]$NuGetApiKey = "foo",
+        [string]$Repository = "CBSfilePS"
+    )
+
+    # Ensure the module path exists
+    if (-Not (Test-Path -Path $ModulePath)) {
+        Write-Error "Module path '$ModulePath' does not exist."
+        return
+    }
+
+    # Publish the module
+    Publish-Module -Path $ModulePath -NuGetApiKey $NuGetApiKey -Repository $Repository
 }
