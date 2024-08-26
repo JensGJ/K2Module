@@ -1,10 +1,15 @@
 function Start-K2RemoteSession {
     [CmdletBinding(SupportsShouldProcess)]
     param (
-        # Role
-        [Parameter(Mandatory)]
+        # Role parameter set
+        [Parameter(Mandatory = $true, ParameterSetName = 'RoleSet')]
         [string[]]
-        $Role
+        $Role,
+
+        # Server parameter set
+        [Parameter(Mandatory = $true, ValueFromPipeline = $true, ParameterSetName = 'ServerSet')]
+        [PSObject]
+        $Server
     )
 
     begin {
@@ -17,17 +22,30 @@ function Start-K2RemoteSession {
          if (-not (Test-WinCredential $cred)){
             throw "Cannot validate credentials (Username='$($cred.UserName)'). Exiting."
          }
+
+         $serverList = @()
     }
 
     process {
-        $servers = Get-K2server -Role $Role | Select-Object -ExpandProperty Name
-        if($PSCmdlet.ShouldProcess($servers -join ", ")){
-            $global:K2session = $servers | New-PSSession -Authentication Credssp -Credential $cred 
-            $K2session
+        if ($PSCmdlet.ParameterSetName -eq 'RoleSet') {
+            $servers = Get-K2server -Role $Role | Select-Object -ExpandProperty Name
+            $serverList += $servers
+        }
+
+        if ($PSCmdlet.ParameterSetName -eq 'ServerSet') {
+            if ($Server -is [string]) {
+                $serverList += $Server
+            } elseif ($Server -is [PSObject]) {
+                $serverList += $Server.Name
+            }
         }
     }
 
     end {
-
+        $serverList = $serverList | Select-Object -Unique
+        if ($PSCmdlet.ShouldProcess($serverList -join ", ")) {
+            $global:K2session = $serverList | New-PSSession -Authentication Credssp -Credential $cred 
+            $K2session
+        }
     }
 }

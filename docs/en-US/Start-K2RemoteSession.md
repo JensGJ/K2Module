@@ -12,8 +12,15 @@ schema: 2.0.0
 
 ## SYNTAX
 
+### RoleSet
 ```
-Start-K2RemoteSession [-Role] <String[]> [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
+Start-K2RemoteSession -Role <String[]> [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
+```
+
+### ServerSet
+```
+Start-K2RemoteSession -Server <PSObject> [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
@@ -51,13 +58,28 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
+Parameter Sets: RoleSet
 Aliases:
 
 Required: True
-Position: 0
+Position: Named
 Default value: None
 Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Server
+{{ Fill Server Description }}
+
+```yaml
+Type: PSObject
+Parameter Sets: ServerSet
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
@@ -97,7 +119,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+### System.Management.Automation.PSObject
 
 ## OUTPUTS
 

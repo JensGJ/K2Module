@@ -42,7 +42,8 @@ function Get-K2Status {
 	}
 
     [pscustomobject]@{
-        ServiceStatus = $Service.State
+		RunStatus = $RunStatus
+		ServiceStatus = $Service.State
         Name = $Service.Name
         UserAccount = $Service.StartName #$Process.username # 
         ProcessId = $Process.Id
@@ -50,7 +51,6 @@ function Get-K2Status {
 		UpTime = $Uptime
 		Path = $Service.PathName # $Process.Path
 		Responding = $Process.Responding
-		RunStatus = $RunStatus
 		RunType = $RunType
     }
 
